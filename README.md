@@ -2,6 +2,8 @@
 
 A very, very badly hacked together executable that can turn on and off function keys on *my* Retina MacBook Pro 15" (Mid-2012). What I'm saying is that it WORKS4ME and with ControlPlane.
 
+At least it does not use GUI scripting with Applescript to accomplish this goal.
+
 **If you know C, or basic Objective-C, feel free to fork and make this not stupid. My C and non-existent Objective-C experience has since atrophied to near-amputation levels.**
 
 ## Usage
