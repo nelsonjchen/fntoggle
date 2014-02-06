@@ -212,7 +212,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
-				INSTALL_PATH = "";
+				INSTALL_PATH = /usr/local/bin/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -226,7 +226,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
-				INSTALL_PATH = "";
+				INSTALL_PATH = /usr/local/bin/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
