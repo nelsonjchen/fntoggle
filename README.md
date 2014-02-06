@@ -112,5 +112,5 @@ The Keyboard Preference Pane does not update with values set by this tool while 
 ## License
 The Schism tracker code is GPL2 but wow a bunch of it looks to be the product of disassembling the Keyboard Preference Pane anyway like me. Regardless, this project is probably GPL2.
 
-I don't know if the CC-BY-SA code I used from the StackOverflow example counts. It's very reference material.
+I don't know if the CC-BY-SA code I used from the StackOverflow example counts. It's very reference material and the Oracle v. Google legal battle judgement would have probably said this is just me looking at how to use an API and not like making a mathematical representation or something. 
 
