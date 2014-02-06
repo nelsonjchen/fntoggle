@@ -9,22 +9,8 @@
 /* Begin PBXBuildFile section */
 		52AE163E18A37BC2002EC06E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AE163D18A37BC2002EC06E /* Foundation.framework */; };
 		52AE164118A37BC2002EC06E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AE164018A37BC2002EC06E /* main.m */; };
-		52AE164518A37BC2002EC06E /* fntoggle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52AE164418A37BC2002EC06E /* fntoggle.1 */; };
 		52F9A54218A37E9600DEA30F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52F9A54118A37E9600DEA30F /* IOKit.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		52AE163818A37BC2002EC06E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-				52AE164518A37BC2002EC06E /* fntoggle.1 in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		52AE163A18A37BC2002EC06E /* fntoggle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fntoggle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,7 +87,6 @@
 			buildPhases = (
 				52AE163618A37BC2002EC06E /* Sources */,
 				52AE163718A37BC2002EC06E /* Frameworks */,
-				52AE163818A37BC2002EC06E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -202,7 +187,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -227,6 +212,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
+				INSTALL_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -240,6 +226,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
+				INSTALL_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
