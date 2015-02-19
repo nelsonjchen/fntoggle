@@ -206,10 +206,7 @@
 		52AE164918A37BC2002EC06E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/nelson/code/fntoggle,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
 				INSTALL_PATH = /usr/local/bin/;
@@ -220,10 +217,7 @@
 		52AE164A18A37BC2002EC06E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/nelson/code/fntoggle,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "fntoggle/fntoggle-Prefix.pch";
 				INSTALL_PATH = /usr/local/bin/;

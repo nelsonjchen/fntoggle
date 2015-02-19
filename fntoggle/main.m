@@ -91,37 +91,55 @@ int macosx_ibook_fnswitch(int setting)
     return res;
 }
 
+unsigned int enable()
+{
+    unsigned int res = macosx_ibook_fnswitch(1);
+    CFPreferencesSetAppValue( CFSTR("fnState"), kCFBooleanTrue, CFSTR("com.apple.keyboard") );
+    CFPreferencesAppSynchronize( CFSTR("com.apple.keyboard") );
+    CFDictionaryKeyCallBacks keyCallbacks = {0, NULL, NULL, CFCopyDescription, CFEqual, NULL};
+    CFDictionaryValueCallBacks valueCallbacks  = {0, NULL, NULL, CFCopyDescription, CFEqual};
+    CFNotificationCenterRef center = CFNotificationCenterGetDistributedCenter();
+    CFMutableDictionaryRef dictionary = CFDictionaryCreateMutable(kCFAllocatorDefault, 1,
+                                                                  &keyCallbacks, &valueCallbacks);
+    CFDictionaryAddValue(dictionary, CFSTR("state"), kCFBooleanTrue);
+    CFNotificationCenterPostNotification(center, CFSTR("com.apple.keyboard.fnstatedidchange"), NULL, dictionary, TRUE);
+    return res;
+}
+
+unsigned int disable()
+{
+    unsigned int res = macosx_ibook_fnswitch(0);
+    CFPreferencesSetAppValue( CFSTR("fnState"), kCFBooleanFalse, CFSTR("com.apple.keyboard") );
+    CFPreferencesAppSynchronize( CFSTR("com.apple.keyboard") );
+    CFDictionaryKeyCallBacks keyCallbacks = {0, NULL, NULL, CFCopyDescription, CFEqual, NULL};
+    CFDictionaryValueCallBacks valueCallbacks  = {0, NULL, NULL, CFCopyDescription, CFEqual};
+    CFNotificationCenterRef center = CFNotificationCenterGetDistributedCenter();
+    CFMutableDictionaryRef dictionary = CFDictionaryCreateMutable(kCFAllocatorDefault, 1,
+                                                                  &keyCallbacks, &valueCallbacks);
+    CFDictionaryAddValue(dictionary, CFSTR("state"), kCFBooleanFalse);
+    CFNotificationCenterPostNotification(center, CFSTR("com.apple.keyboard.fnstatedidchange"), NULL, dictionary, TRUE);
+    return res;
+}
 
 int main(int argc, const char * argv[]) {
     unsigned int res = -1;
-
+    
     if (argc == 2) {
-        if (strcmp(argv[1], "on") == 0) {
-            res = macosx_ibook_fnswitch(1);
-            CFPreferencesSetAppValue( CFSTR("fnState"), kCFBooleanTrue, CFSTR("com.apple.keyboard") );
-            CFPreferencesAppSynchronize( CFSTR("com.apple.keyboard") );
-            CFDictionaryKeyCallBacks keyCallbacks = {0, NULL, NULL, CFCopyDescription, CFEqual, NULL};
-            CFDictionaryValueCallBacks valueCallbacks  = {0, NULL, NULL, CFCopyDescription, CFEqual};
-            CFNotificationCenterRef center = CFNotificationCenterGetDistributedCenter();
-            CFMutableDictionaryRef dictionary = CFDictionaryCreateMutable(kCFAllocatorDefault, 1,
-                                                                          &keyCallbacks, &valueCallbacks);
-            CFDictionaryAddValue(dictionary, CFSTR("state"), kCFBooleanTrue);
-            CFNotificationCenterPostNotification(center, CFSTR("com.apple.keyboard.fnstatedidchange"), NULL, dictionary, TRUE);
-        } else if (strcmp(argv[1], "off") == 0) {
-            res = macosx_ibook_fnswitch(0);
-            CFPreferencesSetAppValue( CFSTR("fnState"), kCFBooleanFalse, CFSTR("com.apple.keyboard") );
-            CFPreferencesAppSynchronize( CFSTR("com.apple.keyboard") );
-            CFDictionaryKeyCallBacks keyCallbacks = {0, NULL, NULL, CFCopyDescription, CFEqual, NULL};
-            CFDictionaryValueCallBacks valueCallbacks  = {0, NULL, NULL, CFCopyDescription, CFEqual};
-            CFNotificationCenterRef center = CFNotificationCenterGetDistributedCenter();
-            CFMutableDictionaryRef dictionary = CFDictionaryCreateMutable(kCFAllocatorDefault, 1,
-                                                                          &keyCallbacks, &valueCallbacks);
-            CFDictionaryAddValue(dictionary, CFSTR("state"), kCFBooleanFalse);
-            CFNotificationCenterPostNotification(center, CFSTR("com.apple.keyboard.fnstatedidchange"), NULL, dictionary, TRUE);
-        }
-    } else {
+        if (strcmp(argv[1], "on") == 0) res = enable();
+        else if (strcmp(argv[1], "off") == 0) res = disable();
+    }
+    else if (argc == 1) {   // toggle to alternate state
+        Boolean validValue;
+        Boolean result = CFPreferencesGetAppBooleanValue(CFSTR("fnState"), CFSTR("com.apple.keyboard"), &validValue);
+        
+        if (result && validValue) res = disable();
+        else if (!result && validValue) res = enable();
+        else return -1;
+    }
+    else {
         return -1;
     }
-    return 0;
+    
+    return res;
 }
 
