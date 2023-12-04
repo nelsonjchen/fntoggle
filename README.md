@@ -23,6 +23,7 @@ At least it does not use GUI scripting with Applescript to accomplish this goal.
 Note that the original F9-F11 keys are most likely still bound to the Expose stuff. This simple program does nothing to address that.
 
 ## References
+
 https://github.com/schismtracker/schismtracker/blob/master/sys/macosx/ibook-support.c
 
 http://stackoverflow.com/questions/6968677/cfnotificationcenter-usage-examples
