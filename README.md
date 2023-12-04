@@ -24,11 +24,11 @@ Note that the original F9-F11 keys are most likely still bound to the Expose stu
 
 ## References
 
-https://github.com/davvid/schismtracker/blob/master/sys/macosx/ibook-support.c
+https://github.com/schismtracker/schismtracker/blob/master/sys/macosx/ibook-support.c
 
 http://stackoverflow.com/questions/6968677/cfnotificationcenter-usage-examples
 
-http://blog.bignerdranch.com/729-notifications-part-2-handling-and-spying/
+https://bignerdranch.com/blog/notifications-part-2-handling-and-spying/
 
 ## Known Issues
 
